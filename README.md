@@ -7,5 +7,5 @@ ssh -tt -i ~/path/to/privat/key -A user@ip-to-public-host ssh user@ip-to-privat-
 
 for more solves follow https://habr.com/ru/post/122445/
 
-bastion_IP = 35.231.228.113 
+bastion_IP = 35.211.108.109 
 someinternalhost_IP = 10.142.0.3

@@ -10,7 +10,7 @@ for more solves follow https://habr.com/ru/post/122445/
 bastion_IP = 35.211.108.109 
 someinternalhost_IP = 10.142.0.11
 
-testapp_IP = 35.198.167.169
+testapp_IP = 35.243.145.17
 testapp_port = 9292
 
 #Command for creating firewall rule

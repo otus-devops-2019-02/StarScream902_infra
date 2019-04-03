@@ -44,3 +44,6 @@ gcloud compute instances create reddit-app \
 #Docs 
 #https://cloud.google.com/sdk/gcloud/reference/compute/instances/create
 #https://cloud.google.com/compute/docs/startupscript
+
+#Packer dock
+#https://www.packer.io/docs/index.html

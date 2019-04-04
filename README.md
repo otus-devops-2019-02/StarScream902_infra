@@ -14,6 +14,7 @@ testapp_IP = 35.243.145.17
 testapp_port = 9292
 
 #Command for creating firewall rule
+
 gcloud compute firewall-rules create puma-server \
 	--no-enable-logging \
 	--network default \
@@ -24,11 +25,14 @@ gcloud compute firewall-rules create puma-server \
 	--source-ranges 0.0.0.0/0 \
 	--rules tcp:9292 \
 	--no-disabled
+
 #Docs 
 #https://cloud.google.com/vpc/docs/using-firewalls
 
 #Command for creatin VM-instance with startup script
-gcloud compute instances create reddit-app\
+
+gcloud compute instances create reddit-app \
+  --zone=europe-north1-b \
   --boot-disk-size=10GB \
   --image-family ubuntu-1604-lts \
   --image-project=ubuntu-os-cloud \
@@ -36,6 +40,10 @@ gcloud compute instances create reddit-app\
   --tags puma-server \
   --restart-on-failure \
   --metadata startup-script-url=https://gist.githubusercontent.com/StarScream902/768b5c669e348958e546f7e2bbf8a203/raw/e3aa31f7dc6e38f3e19b91cf62a5affd17c273ef/startup-script
+
 #Docs 
 #https://cloud.google.com/sdk/gcloud/reference/compute/instances/create
 #https://cloud.google.com/compute/docs/startupscript
+
+#Packer dock
+#https://www.packer.io/docs/index.html

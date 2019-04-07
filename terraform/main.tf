@@ -1,7 +1,7 @@
 terraform {
 	# Версия terraform
 	# required_version = "0.11.13"
-	required_version = "0.11.7"
+	required_version = ">= 0.11.7, <= 0.11.13"
 }
 
 provider "google" {
@@ -38,12 +38,12 @@ resource "google_compute_instance" "app" {
 	metadata {
 		# путь до публичного ключа
 		# ssh-keys = "starscream902:${file("~/.ssh/GitHub-StarScream902-pub")}"
-		ssh-keys = "starscream902:${file(var.public_key_path)}"
+		ssh-keys = "appuser:${file(var.public_key_path)}"
 	}
 
 	connection {
 		type = "ssh"
-		user = "starscream902"
+		user = "appuser"
 		agent = false
 		# путь до приватного ключа
 		# private_key = "${file("~/.ssh/GitHub-StarScream902-priv.OpenSSH")}"

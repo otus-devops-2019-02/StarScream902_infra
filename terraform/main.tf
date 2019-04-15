@@ -32,18 +32,20 @@ resource "google_compute_instance" "app" {
 		# сеть, к которой присоединить данный интерфейс
 		network = "default"
 		# использовать ephemeral IP для доступа из Интернет
-		access_config {}
+		access_config {
+			nat_ip = "${google_compute_address.app_ip.address}"
+		}
 	}
-	
+
 	metadata {
 		# путь до публичного ключа
-		# ssh-keys = "starscream902:${file("~/.ssh/GitHub-StarScream902-pub")}"
-		ssh-keys = "appuser:${file(var.public_key_path)}"
+		ssh-keys = "starscream902:${file("~/.ssh/GitHub-StarScream902-pub")}"
+		# ssh-keys = "appuser:${file(var.public_key_path)}"
 	}
 
 	connection {
 		type = "ssh"
-		user = "appuser"
+		user = "starscream902"
 		agent = false
 		# путь до приватного ключа
 		# private_key = "${file("~/.ssh/GitHub-StarScream902-priv.OpenSSH")}"
@@ -60,6 +62,10 @@ resource "google_compute_instance" "app" {
 	}
 }
 
+resource "google_compute_address" "app_ip" {
+	name = "reddit-app-ip"
+}
+
 resource "google_compute_firewall" "firewall_puma" {
 	name = "allow-puma-default"
 	# Название сети, в которой действует правило
@@ -73,4 +79,14 @@ resource "google_compute_firewall" "firewall_puma" {
 	source_ranges = ["0.0.0.0/0"]
 	# Правило применимо для инстансов с перечисленными тэгами
 	target_tags = ["reddit-app"]
+}
+
+resource "google_compute_firewall" "firewall_ssh" {
+	name = "default-allow-ssh"
+	network = "default"
+	allow {
+		protocol = "tcp"
+		ports = ["22"]
+	}
+	source_ranges = ["0.0.0.0/0"]
 }

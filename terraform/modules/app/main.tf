@@ -15,13 +15,13 @@ resource "google_compute_instance" "rabbit-app" {
         }
     }
     metadata {
-        ssh-keys = "${var.ssh_user}:${file(var.public_key_path)}"
+        ssh-keys = "appuser:${file(var.public_key_path)}"
     }
 
 
 	connection {
 		type = "ssh"
-		user = "${var.ssh_user}"
+		user = "appuser"
 		agent = false
 		# путь до приватного ключа
 		private_key = "${file(var.private_key_path)}"

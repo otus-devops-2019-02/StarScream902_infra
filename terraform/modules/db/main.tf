@@ -13,7 +13,7 @@ resource "google_compute_instance" "rabbit-db" {
         access_config = {}
     }
     metadata {
-        ssh-keys = "${var.ssh_user}:${file(var.public_key_path)}"
+        ssh-keys = "appuser:${file(var.public_key_path)}"
     }
 }
 

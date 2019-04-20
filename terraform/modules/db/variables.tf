@@ -15,5 +15,5 @@ variable rabbit_db_disk_image {
 
 variable "ssh_user" {
   description = "ssh user"
-  default = "starscream902"
+  default = "appuser"
 }

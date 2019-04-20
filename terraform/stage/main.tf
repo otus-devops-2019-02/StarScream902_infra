@@ -14,18 +14,19 @@ provider "google" {
 }
 
 module "rabbit-app" {
-	source = "modules/app"
+	source = "../modules/app"
 	public_key_path = "${var.public_key_path}"
 	zone = "${var.zone}"
 	rabbit_app_disk_image = "${var.rabbit_app_disk_image}"
 }
 module "rabbit-db" {
-	source = "modules/db"
+	source = "../modules/db"
 	public_key_path = "${var.public_key_path}"
 	zone = "${var.zone}"
 	rabbit_db_disk_image = "${var.rabbit_db_disk_image}"
 }
 
 module "vpc" {
-	source = "modules/vpc"
+	source = "../modules/vpc"
+	source_ranges = ["0.0.0.0/0"]
 }

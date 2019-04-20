@@ -15,16 +15,15 @@ resource "google_compute_instance" "rabbit-app" {
         }
     }
     metadata {
-        ssh-keys = "starscream902:${file(var.public_key_path)}"
+        ssh-keys = "${var.ssh_user}:${file(var.public_key_path)}"
     }
 
 
 	connection {
 		type = "ssh"
-		user = "starscream902"
+		user = "${var.ssh_user}"
 		agent = false
 		# путь до приватного ключа
-		# private_key = "${file("~/.ssh/GitHub-StarScream902-priv.OpenSSH")}"
 		private_key = "${file(var.private_key_path)}"
 	}
 

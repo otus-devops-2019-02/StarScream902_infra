@@ -31,3 +31,7 @@ variable rabbit_app_disk_image {
 variable rabbit_db_disk_image {
   description = "Disk image"
 }
+
+variable "ssh_user" {
+  description = "ssh user"
+}

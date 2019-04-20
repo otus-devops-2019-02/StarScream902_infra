@@ -12,3 +12,7 @@ variable public_key_path {
 variable rabbit_db_disk_image {
   description = "Disk image"
 }
+
+variable "ssh_user" {
+  description = "ssh user"
+}

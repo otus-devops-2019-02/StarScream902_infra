@@ -13,7 +13,7 @@ variable public_key_path {
 variable private_key_path {
   # Описание переменной
   description = "Path to the private key used for ssh access"
-  default = "~/.ssh/appuser"
+  default     = "~/.ssh/appuser"
 }
 
 variable rabbit_app_disk_image {
@@ -22,5 +22,5 @@ variable rabbit_app_disk_image {
 
 variable "ssh_user" {
   description = "ssh user"
-  default = "appuser"
+  default     = "appuser"
 }

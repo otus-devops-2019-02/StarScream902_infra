@@ -4,12 +4,14 @@ variable project {
 
 variable region {
   description = "Region"
+
   # Значение по умолчанию
   default = "europe-north1"
 }
 
 variable zone {
   description = "zone"
+
   # Значение по умолчанию
   default = "europe-north1-c"
 }

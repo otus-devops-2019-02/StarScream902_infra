@@ -1,5 +1,6 @@
 variable zone {
   description = "zone"
+
   # Значение по умолчанию
   default = "europe-north1-c"
 }
@@ -15,5 +16,5 @@ variable rabbit_db_disk_image {
 
 variable "ssh_user" {
   description = "ssh user"
-  default = "appuser"
+  default     = "appuser"
 }

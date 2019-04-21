@@ -1,14 +1,3 @@
-variable project {
-  description = "Project ID"
-}
-
-variable region {
-  description = "Region"
-
-  # Значение по умолчанию
-  default = "europe-north1"
-}
-
 variable zone {
   description = "zone"
 
@@ -24,12 +13,14 @@ variable public_key_path {
 variable private_key_path {
   # Описание переменной
   description = "Path to the private key used for ssh access"
+  default     = "~/.ssh/appuser"
 }
 
 variable rabbit_app_disk_image {
   description = "Disk image"
 }
 
-variable rabbit_db_disk_image {
-  description = "Disk image"
+variable "ssh_user" {
+  description = "ssh user"
+  default     = "appuser"
 }

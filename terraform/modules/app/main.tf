@@ -1,4 +1,4 @@
-resource "google_compute_instance" "rabbit-app" {
+resource "google_compute_instance" "reddi-app" {
   name         = "reddit-app"
   machine_type = "g1-small"
   zone         = "${var.zone}"
@@ -6,7 +6,7 @@ resource "google_compute_instance" "rabbit-app" {
 
   boot_disk {
     initialize_params {
-      image = "${var.rabbit_app_disk_image}"
+      image = "${var.reddit_app_disk_image}"
     }
   }
 
@@ -14,7 +14,7 @@ resource "google_compute_instance" "rabbit-app" {
     network = "default"
 
     access_config = {
-      nat_ip = "${google_compute_address.rabbit-app_ip.address}"
+      nat_ip = "${google_compute_address.reddi-app_ip.address}"
     }
   }
 
@@ -32,16 +32,16 @@ resource "google_compute_instance" "rabbit-app" {
   }
 
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "${path.module}/files/puma.service"
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "${path.module}/files/deploy.sh"
   }
 }
 
-resource "google_compute_address" "rabbit-app_ip" {
+resource "google_compute_address" "reddi-app_ip" {
   name = "reddit-app-ip"
 }
 

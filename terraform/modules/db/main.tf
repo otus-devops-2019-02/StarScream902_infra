@@ -1,4 +1,4 @@
-resource "google_compute_instance" "rabbit-db" {
+resource "google_compute_instance" "reddit-db" {
   name         = "reddit-db"
   machine_type = "g1-small"
   zone         = "${var.zone}"
@@ -6,7 +6,7 @@ resource "google_compute_instance" "rabbit-db" {
 
   boot_disk {
     initialize_params {
-      image = "${var.rabbit_db_disk_image}"
+      image = "${var.reddit_db_disk_image}"
     }
   }
 
@@ -18,6 +18,14 @@ resource "google_compute_instance" "rabbit-db" {
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
+
+	connection {
+    type  = "ssh"
+	  user  = "${var.ssh_user}"
+	  agent = false
+	  private_key = "${file(var.private_key_path)}"
+	}
+
 }
 
 # Правило firewall

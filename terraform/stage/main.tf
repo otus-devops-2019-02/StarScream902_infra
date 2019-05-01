@@ -15,18 +15,22 @@ provider "google" {
   region = "${var.region}"
 }
 
-module "rabbit-app" {
+module "reddit-app" {
   source                = "../modules/app"
   public_key_path       = "${var.public_key_path}"
   zone                  = "${var.zone}"
-  rabbit_app_disk_image = "${var.rabbit_app_disk_image}"
+  reddit_app_disk_image = "${var.reddit_app_disk_image}"
+  ssh_user             = "${var.ssh_user}"
+  private_key_path = "${var.private_key_path}"
 }
 
-module "rabbit-db" {
+module "reddit-db" {
   source               = "../modules/db"
   public_key_path      = "${var.public_key_path}"
   zone                 = "${var.zone}"
-  rabbit_db_disk_image = "${var.rabbit_db_disk_image}"
+  reddit_db_disk_image = "${var.reddit_db_disk_image}"
+  ssh_user             = "${var.ssh_user}"
+  private_key_path = "${var.private_key_path}"
 }
 
 module "vpc" {

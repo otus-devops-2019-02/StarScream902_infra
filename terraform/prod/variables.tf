@@ -26,10 +26,14 @@ variable private_key_path {
   description = "Path to the private key used for ssh access"
 }
 
-variable rabbit_app_disk_image {
+variable reddit_app_disk_image {
   description = "Disk image"
 }
 
-variable rabbit_db_disk_image {
+variable reddit_db_disk_image {
   description = "Disk image"
+}
+
+variable "ssh_user" {
+  description = "User for ssh connect"
 }

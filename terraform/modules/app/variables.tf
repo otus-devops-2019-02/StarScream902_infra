@@ -16,7 +16,7 @@ variable private_key_path {
   default     = "~/.ssh/appuser"
 }
 
-variable rabbit_app_disk_image {
+variable reddit_app_disk_image {
   description = "Disk image"
 }
 

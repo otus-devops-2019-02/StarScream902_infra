@@ -9,7 +9,7 @@
   copy:
     src: puma.service
     dest: /etc/systemd/system/puma.service
-  notify: 
+  notify:
     - reload systemd
     - reload puma
 

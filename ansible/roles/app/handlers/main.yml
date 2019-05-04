@@ -4,4 +4,4 @@
   systemd: daemon_reload=yes
 
 - name: reload puma
-  systemd: name=puma state=restarted #daemon_reload=yes
+  systemd: name=puma state=restarted

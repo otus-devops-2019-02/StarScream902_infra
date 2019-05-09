@@ -101,5 +101,6 @@ python-vagrant>=0.5.15
 molecule list покажет все созданные VM
 Так же можно подключиться к этой VM командой (molecule login -h instance_NAME)
 В файле db/molecule/default/playbook.yml находится плэйбук, которым запускается роль для проверки, по желанию, его можно скорректировать
-После изменений нужно из применить командо (molecule converge)
-Запусе тестов Testinfra запускаются командой (molecule verify)
+molecule converge - применяет изменения
+molecule verify - запуск тестов Testinfra
+molecule test - выполняет lint тесты роли

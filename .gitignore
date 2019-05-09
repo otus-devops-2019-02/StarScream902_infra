@@ -1,10 +1,20 @@
-packer/variables.json
 *.swp
+.vscode/
+# Packer
+packer/variables.json
+# Terraform
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
 *.tfvars
 .terraform/
-.vscode/
+# Ansible
 *.retry
 jdauphant.nginx
+# Vagrant & molecule
+.vagrant/
+*.log
+*.pyc
+.molecule
+.cache
+.pytest_cache

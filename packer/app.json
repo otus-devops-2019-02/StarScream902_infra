@@ -1,8 +1,8 @@
 {
     "variables": {
         "project_id": "",
-	"source_image_family": "",
-	"machine_type": ""
+        "source_image_family": "",
+        "machine_type": ""
     },
 
     "builders": [
